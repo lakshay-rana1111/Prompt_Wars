@@ -1,0 +1,23 @@
+﻿import { GoogleGenAI } from "@google/genai";
+import { z } from "zod";
+
+export type Evidence = { source: "resume" | "transcript" | "job_description"; quote: string; rationale: string };
+export type CandidateProfile = { candidateName: string; yearsOfExperience: string; coreSkills: string[]; claimedAchievements: string[]; communicationSignals: string[]; riskSignals: string[]; unknowns: string[]; evidence: Evidence[] };
+export type AgentName = "technical" | "hr_culture" | "hiring_manager" | "skeptic";
+export type AgentOpinion = { agent: AgentName; recommendation: "strong_hire" | "hire" | "hold" | "no_hire"; confidence: number; summary: string; strengths: string[]; concerns: string[]; unknowns: string[]; evidence: Evidence[] };
+export type DebateTurn = { speaker: AgentName; targetAgent: AgentName; responseType: "agree" | "disagree" | "revise"; message: string; evidence: Evidence[] };
+export type DebateResult = { turns: DebateTurn[]; revisedOpinions: AgentOpinion[] };
+export type FinalDecision = { recommendation: "strong_hire" | "hire" | "hold" | "no_hire"; confidence: number; decisionRationale: string; keyStrengths: string[]; keyConcerns: string[]; unresolvedDisagreements: string[] };
+
+const ev = z.object({ source: z.enum(["resume", "transcript", "job_description"]), quote: z.string(), rationale: z.string() });
+const opinionSchema = z.object({ agent: z.enum(["technical", "hr_culture", "hiring_manager", "skeptic"]), recommendation: z.enum(["strong_hire", "hire", "hold", "no_hire"]), confidence: z.number().min(0).max(1), summary: z.string(), strengths: z.array(z.string()), concerns: z.array(z.string()), unknowns: z.array(z.string()), evidence: z.array(ev) });
+const profileSchema = z.object({ candidateName: z.string(), yearsOfExperience: z.string(), coreSkills: z.array(z.string()), claimedAchievements: z.array(z.string()), communicationSignals: z.array(z.string()), riskSignals: z.array(z.string()), unknowns: z.array(z.string()), evidence: z.array(ev) });
+const debateSchema = z.object({ turns: z.array(z.object({ speaker: z.enum(["technical", "hr_culture", "hiring_manager", "skeptic"]), targetAgent: z.enum(["technical", "hr_culture", "hiring_manager", "skeptic"]), responseType: z.enum(["agree", "disagree", "revise"]), message: z.string(), evidence: z.array(ev) })).min(2), revisedOpinions: z.array(opinionSchema).length(4) });
+const finalSchema = z.object({ recommendation: z.enum(["strong_hire", "hire", "hold", "no_hire"]), confidence: z.number().min(0).max(1), decisionRationale: z.string(), keyStrengths: z.array(z.string()), keyConcerns: z.array(z.string()), unresolvedDisagreements: z.array(z.string()) });
+const model = "gemini-2.5-flash";
+const parse = <T>(raw: string, schema: z.ZodSchema<T>) => schema.parse(JSON.parse(raw.replace(/^```json\s*/i, "").replace(/```$/i, "").trim()));
+async function call(ai: GoogleGenAI, prompt: string) { const response = await ai.models.generateContent({ model, contents: prompt }); if (!response.text) throw new Error("Empty Gemini response"); return response.text; }
+export async function buildCandidateProfile(ai: GoogleGenAI, jd: string, resume: string, transcript: string) { return parse(await call(ai, `Create JSON profile only. JD:\n${jd}\nResume:\n${resume}\nTranscript:\n${transcript}\nReturn {candidateName,yearsOfExperience,coreSkills,claimedAchievements,communicationSignals,riskSignals,unknowns,evidence}`), profileSchema); }
+export async function generateIndependentOpinion(ai: GoogleGenAI, role: AgentName, profile: CandidateProfile, jd: string) { const instruction = { technical: "Focus on technical depth.", hr_culture: "Focus on communication and teamwork.", hiring_manager: "Focus on role fit and impact.", skeptic: "Challenge contradictions and risk." }[role]; return parse(await call(ai, `You are ${role}. ${instruction} Give independent first-pass JSON only. JD:\n${jd}\nProfile:\n${JSON.stringify(profile)}\nReturn agent,recommendation,confidence,summary,strengths,concerns,unknowns,evidence`), opinionSchema); }
+export async function runDebate(ai: GoogleGenAI, jd: string, profile: CandidateProfile, opinions: AgentOpinion[]) { return parse(await call(ai, `Run a structured debate JSON only. Must include turns and revisedOpinions. JD:\n${jd}\nProfile:\n${JSON.stringify(profile)}\nOpinions:\n${JSON.stringify(opinions)}`), debateSchema); }
+export async function synthesizeFinalDecision(ai: GoogleGenAI, jd: string, profile: CandidateProfile, initialOpinions: AgentOpinion[], debate: DebateResult) { return parse(await call(ai, `Synthesize final hiring decision without averaging. JSON only. JD:\n${jd}\nProfile:\n${JSON.stringify(profile)}\nOpinions:\n${JSON.stringify(initialOpinions)}\nDebate:\n${JSON.stringify(debate)}`), finalSchema); }
