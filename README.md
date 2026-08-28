@@ -1,6 +1,14 @@
-# Prompt_Wars
-1. A Candidate Profile Builder A part of your system that reads the resume + transcript and pulls out the basic facts (skills, experience, claims made) — this is the shared information all your agents will use.
-2. At least 4 AI Personas (agents), each with a different job • Technical Agent — checks technical skill and depth • HR / Culture Agent — checks communication, teamwork, honesty • Hiring Manager Agent — checks if this person is worth hiring for the role • Skeptic Agent — looks for contradictions, exaggeration, red flags Important rule: each agent must first give its opinion on its own, without seeing what the other agents said(there should be a separate llm call, no agent may access another agent's conclusions before the debate stage). And every opinion must be backed by a real quote or fact from the transcript/resume — not just a random score.
-3. A Debate Step After all agents give their independent opinion, they must talk to each other. At least one agent must directly respond to another agent’s point — agreeing, disagreeing, or changing its own opinion because of it. Just showing 4 opinions sidebyside does NOT count as a debate.
-4. A Final Decision Step (not simple averaging) Your system should not just average the 4 scores to get a final answer. You need some kind of reasoning step where the agents’ evidence and confidence are weighed to reach a final decision — this is the most important part of the challenge.
-5. A Final Report For each candidate, show: final recommendation, confidence level, strengths, concerns, and any disagreement between the agents that wasn’t fully resolved. Integrating a voice debate session between different personas is a bonus point. 
+﻿# Interview Panel App
+
+This repository contains a Gemini-based Interview Panel simulator.
+
+Quick start (local):
+
+1. Copy `.env.example` to `.env` and set GEMINI_API_KEY
+2. npm install
+3. npm run dev
+4. Open http://localhost:3000 and upload files via the web UI
+
+Notes:
+- The app runs on the current branch `lakshay-rana1111-interview-panel-simulator`.
+- The backend calls Gemini — costs and rate limits apply to your API key.
