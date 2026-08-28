@@ -1,0 +1,5 @@
+﻿Alex Candidate
+
+Experience: 5 years at Acme Corp
+Skills: Node.js, JavaScript, Microservices, SQL
+Achievements: Built microservices, led migrations

@@ -1,0 +1,5 @@
+﻿Jordan Candidate
+
+Experience: 6 years at Beta Ltd
+Skills: Java, Spring, Microservices
+Achievements: Improved latency
