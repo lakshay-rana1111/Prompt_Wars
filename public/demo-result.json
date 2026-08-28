@@ -1,0 +1,463 @@
+{
+  "jobDescription": "Job Description: AI Engineer — Agentic Systems (Freight Operations)\nCompany: Cargonet AI — a freight-tech company that runs AI “agent” systems in real production, handling things like\nshipment quoting, booking, tracking, document processing, and fixing errors automatically.\nAbout the Role\nWe need an engineer to help improve our existing AI agent system (think of it as multiple AI workers — a planner, an\nexecutor, a reviewer, and specialized agents — working together). This is not a research-only job. You will build real features\nthat go live for real users, mostly by directing AI coding tools (like Claude Code) rather than writing every line by hand —\nand you’ll be responsible for fixing things when they break in production.\nWhat You'll Do\n• Improve the multi-agent AI system (planner, executor, reviewer, and other agents) that powers freight operations:\nquoting, booking, tracking, document processing, and error handling.\n• Build features mainly by directing AI coding tools (like Claude Code) — reviewing and guiding their output, not just\nwriting code yourself.\n• Work on the Python backend (built as small services) and the React.js front-end, using MongoDB as the database, to\nbuild clean features and easy-to-use screens for operators.\n• Improve how the AI is prompted, what tools/memory it has access to, and how it searches for relevant information\n(RAG / vector search); help decide which AI models to use for the best balance of quality and cost.\n• Keep the live system running smoothly — find and fix bugs when an AI agent misbehaves, and improve how we test\nand monitor the system.\n• Help connect the system to outside tools: carrier/shipping APIs, other business software, and document scanning\n(OCR) for extracting data from shipping documents like invoices.\nWhat We're Looking For\n• Solid Python backend skills (building APIs, working with small services).\n• Some real hands-on experience with AI/LLM systems — not just tutorials. Things like prompt writing, RAG/vector\nsearch, and testing how well an AI system performs.\n• Comfortable taking ownership when something breaks in production, not just when a demo goes well.\n• Basic React.js skills for building simple front-end screens.\n• Nice to have: experience with logistics/freight, document scanning (OCR), or connecting different business systems\ntogether.\nWhat This Role Is NOT\nThis is not a “build it once and move on” role. We care as much about keeping things working reliably over time as we do\nabout building the first version.",
+  "results": [
+    {
+      "candidateId": "A",
+      "profile": {
+        "candidateName": "Rohan Malhotra",
+        "yearsOfExperience": "5",
+        "coreSkills": [
+          "Node.js",
+          "Microservices"
+        ],
+        "claimedAchievements": [
+          "Built microservices"
+        ],
+        "communicationSignals": [
+          "clear speaker in transcript"
+        ],
+        "riskSignals": [],
+        "unknowns": [
+          "system design depth"
+        ],
+        "evidence": [
+          {
+            "source": "resume",
+            "quote": "Senior AI/Backend Engineer",
+            "rationale": "employment line"
+          }
+        ]
+      },
+      "initialOpinions": [
+        {
+          "agent": "technical",
+          "recommendation": "hire",
+          "confidence": 0.8,
+          "summary": "Solid backend skills",
+          "strengths": [
+            "Node.js experience"
+          ],
+          "concerns": [
+            "design depth"
+          ],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "resume",
+              "quote": "Built microservices",
+              "rationale": "claim"
+            }
+          ]
+        },
+        {
+          "agent": "hr_culture",
+          "recommendation": "hire",
+          "confidence": 0.7,
+          "summary": "Good communicator",
+          "strengths": [
+            "clear transcript"
+          ],
+          "concerns": [],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "transcript",
+              "quote": "I like collaborating",
+              "rationale": "team orientation"
+            }
+          ]
+        },
+        {
+          "agent": "hiring_manager",
+          "recommendation": "hold",
+          "confidence": 0.6,
+          "summary": "Potential fit but needs ramp",
+          "strengths": [
+            "relevant skills"
+          ],
+          "concerns": [
+            "unclear design depth"
+          ],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "resume",
+              "quote": "Led migrations",
+              "rationale": "leadership"
+            }
+          ]
+        },
+        {
+          "agent": "skeptic",
+          "recommendation": "hold",
+          "confidence": 0.5,
+          "summary": "Claims lack detail",
+          "strengths": [],
+          "concerns": [
+            "vague claims"
+          ],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "resume",
+              "quote": "Built microservices",
+              "rationale": "no specifics"
+            }
+          ]
+        }
+      ],
+      "debate": {
+        "turns": [
+          {
+            "speaker": "skeptic",
+            "targetAgent": "technical",
+            "responseType": "disagree",
+            "message": "Technical claims lack specifics.",
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Built microservices",
+                "rationale": "no details"
+              }
+            ]
+          },
+          {
+            "speaker": "technical",
+            "targetAgent": "skeptic",
+            "responseType": "revise",
+            "message": "Acknowledging gap but still hireable",
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Led migrations",
+                "rationale": "delivery"
+              }
+            ]
+          }
+        ],
+        "revisedOpinions": [
+          {
+            "agent": "technical",
+            "recommendation": "hire",
+            "confidence": 0.75,
+            "summary": "Solid backend skills",
+            "strengths": [
+              "Node.js experience"
+            ],
+            "concerns": [
+              "design depth"
+            ],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Built microservices",
+                "rationale": "claim"
+              }
+            ]
+          },
+          {
+            "agent": "hr_culture",
+            "recommendation": "hire",
+            "confidence": 0.6499999999999999,
+            "summary": "Good communicator",
+            "strengths": [
+              "clear transcript"
+            ],
+            "concerns": [],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "transcript",
+                "quote": "I like collaborating",
+                "rationale": "team orientation"
+              }
+            ]
+          },
+          {
+            "agent": "hiring_manager",
+            "recommendation": "hold",
+            "confidence": 0.5499999999999999,
+            "summary": "Potential fit but needs ramp",
+            "strengths": [
+              "relevant skills"
+            ],
+            "concerns": [
+              "unclear design depth"
+            ],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Led migrations",
+                "rationale": "leadership"
+              }
+            ]
+          },
+          {
+            "agent": "skeptic",
+            "recommendation": "hold",
+            "confidence": 0.45,
+            "summary": "Claims lack detail",
+            "strengths": [],
+            "concerns": [
+              "vague claims"
+            ],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Built microservices",
+                "rationale": "no specifics"
+              }
+            ]
+          }
+        ]
+      },
+      "finalDecision": {
+        "recommendation": "hire",
+        "confidence": 0.65,
+        "decisionRationale": "Strengths in delivery and communication outweigh vagueness; moderate ramp expected.",
+        "keyStrengths": [
+          "Delivery history",
+          "Clear communication"
+        ],
+        "keyConcerns": [
+          "Design depth unknown"
+        ],
+        "unresolvedDisagreements": [
+          "hiring_manager vs technical"
+        ]
+      }
+    },
+    {
+      "candidateId": "B",
+      "profile": {
+        "candidateName": "Ananya Iyer",
+        "yearsOfExperience": "5",
+        "coreSkills": [
+          "Node.js",
+          "Microservices"
+        ],
+        "claimedAchievements": [
+          "Built microservices"
+        ],
+        "communicationSignals": [
+          "clear speaker in transcript"
+        ],
+        "riskSignals": [],
+        "unknowns": [
+          "system design depth"
+        ],
+        "evidence": [
+          {
+            "source": "resume",
+            "quote": "Software Engineer (Backend → AI)",
+            "rationale": "employment line"
+          }
+        ]
+      },
+      "initialOpinions": [
+        {
+          "agent": "technical",
+          "recommendation": "hire",
+          "confidence": 0.8,
+          "summary": "Solid backend skills",
+          "strengths": [
+            "Node.js experience"
+          ],
+          "concerns": [
+            "design depth"
+          ],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "resume",
+              "quote": "Built microservices",
+              "rationale": "claim"
+            }
+          ]
+        },
+        {
+          "agent": "hr_culture",
+          "recommendation": "hire",
+          "confidence": 0.7,
+          "summary": "Good communicator",
+          "strengths": [
+            "clear transcript"
+          ],
+          "concerns": [],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "transcript",
+              "quote": "I like collaborating",
+              "rationale": "team orientation"
+            }
+          ]
+        },
+        {
+          "agent": "hiring_manager",
+          "recommendation": "hold",
+          "confidence": 0.6,
+          "summary": "Potential fit but needs ramp",
+          "strengths": [
+            "relevant skills"
+          ],
+          "concerns": [
+            "unclear design depth"
+          ],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "resume",
+              "quote": "Led migrations",
+              "rationale": "leadership"
+            }
+          ]
+        },
+        {
+          "agent": "skeptic",
+          "recommendation": "hold",
+          "confidence": 0.5,
+          "summary": "Claims lack detail",
+          "strengths": [],
+          "concerns": [
+            "vague claims"
+          ],
+          "unknowns": [],
+          "evidence": [
+            {
+              "source": "resume",
+              "quote": "Built microservices",
+              "rationale": "no specifics"
+            }
+          ]
+        }
+      ],
+      "debate": {
+        "turns": [
+          {
+            "speaker": "skeptic",
+            "targetAgent": "technical",
+            "responseType": "disagree",
+            "message": "Technical claims lack specifics.",
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Built microservices",
+                "rationale": "no details"
+              }
+            ]
+          },
+          {
+            "speaker": "technical",
+            "targetAgent": "skeptic",
+            "responseType": "revise",
+            "message": "Acknowledging gap but still hireable",
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Led migrations",
+                "rationale": "delivery"
+              }
+            ]
+          }
+        ],
+        "revisedOpinions": [
+          {
+            "agent": "technical",
+            "recommendation": "hire",
+            "confidence": 0.75,
+            "summary": "Solid backend skills",
+            "strengths": [
+              "Node.js experience"
+            ],
+            "concerns": [
+              "design depth"
+            ],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Built microservices",
+                "rationale": "claim"
+              }
+            ]
+          },
+          {
+            "agent": "hr_culture",
+            "recommendation": "hire",
+            "confidence": 0.6499999999999999,
+            "summary": "Good communicator",
+            "strengths": [
+              "clear transcript"
+            ],
+            "concerns": [],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "transcript",
+                "quote": "I like collaborating",
+                "rationale": "team orientation"
+              }
+            ]
+          },
+          {
+            "agent": "hiring_manager",
+            "recommendation": "hold",
+            "confidence": 0.5499999999999999,
+            "summary": "Potential fit but needs ramp",
+            "strengths": [
+              "relevant skills"
+            ],
+            "concerns": [
+              "unclear design depth"
+            ],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Led migrations",
+                "rationale": "leadership"
+              }
+            ]
+          },
+          {
+            "agent": "skeptic",
+            "recommendation": "hold",
+            "confidence": 0.45,
+            "summary": "Claims lack detail",
+            "strengths": [],
+            "concerns": [
+              "vague claims"
+            ],
+            "unknowns": [],
+            "evidence": [
+              {
+                "source": "resume",
+                "quote": "Built microservices",
+                "rationale": "no specifics"
+              }
+            ]
+          }
+        ]
+      },
+      "finalDecision": {
+        "recommendation": "hire",
+        "confidence": 0.65,
+        "decisionRationale": "Strengths in delivery and communication outweigh vagueness; moderate ramp expected.",
+        "keyStrengths": [
+          "Delivery history",
+          "Clear communication"
+        ],
+        "keyConcerns": [
+          "Design depth unknown"
+        ],
+        "unresolvedDisagreements": [
+          "hiring_manager vs technical"
+        ]
+      }
+    }
+  ]
+}
