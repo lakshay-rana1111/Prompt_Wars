@@ -1,0 +1,12 @@
+﻿# Node
+node_modules/
+# Build
+dist/
+# Env files
+.env
+.env.local
+.env.*.local
+# OS
+.DS_Store
+# Demo outputs
+public/demo-result.json

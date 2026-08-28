@@ -12,3 +12,15 @@ Quick start (local):
 Notes:
 - The app runs on the current branch `lakshay-rana1111-interview-panel-simulator`.
 - The backend calls Gemini — costs and rate limits apply to your API key.
+
+## Secrets & Gemini API Key
+
+Do NOT commit your API keys. Locally, create a `.env` file at the repo root with:
+
+GEMINI_API_KEY=your_key_here
+
+This repository already includes `.env` in `.gitignore` so it won't be committed.
+
+For deployments, add the GEMINI_API_KEY to your host's secret settings (e.g., Vercel/Render/GitHub Actions secrets) instead of embedding it in code.
+
+If a secret is ever accidentally committed, rotate it immediately and remove it from Git history.
