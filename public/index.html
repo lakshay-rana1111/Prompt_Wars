@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Interview Panel App</title>
   <style>
-    body{font-family:system-ui;margin:24px;max-width:900px}
+    body{font-family:system-ui;margin:24px;max-width:1000px}
     label{display:block;margin-top:12px}
     pre{white-space:pre-wrap;background:#0b0b0b;color:#e6e6e6;padding:12px;border-radius:6px}
     .muted{color:#666;font-size:0.9em}
+    .panel{border:1px solid #ddd;padding:12px;border-radius:6px;margin-top:12px}
+    .agent{background:#f7f7f7;padding:8px;border-radius:6px;margin:6px 0}
+    .strong{font-weight:700}
+    .flex{display:flex;gap:12px}
+    .col{flex:1}
+    button{padding:8px 12px;margin-top:8px}
+    .evidence{font-size:0.9em;color:#333;margin-left:8px}
   </style>
 </head>
 <body>
@@ -26,11 +33,17 @@
     <button type="submit">Analyze</button>
   </form>
 
+  <div style="margin-top:12px">
+    <button id="load-demo">Load demo result</button>
+    <span class="muted">(If demo was run on the server, loads public/demo-result.json)</span>
+  </div>
+
   <h2>Status</h2>
   <div id="status">Idle</div>
 
   <h2>Result</h2>
-  <pre id="result">No result yet.</pre>
+  <div id="result-structured"></div>
+  <pre id="result-raw" style="display:none">No result yet.</pre>
 
   <script src="/app.js"></script>
 </body>
